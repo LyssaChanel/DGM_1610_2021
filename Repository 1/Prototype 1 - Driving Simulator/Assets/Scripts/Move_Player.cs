@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Move_Player : MonoBehaviour
 {
-    private float speed = 5.0f;
+    private float speed = 30.0f;
     private float hInput;
-    private float turnSpeed = 25.0f;
+    private float turnSpeed = 40.0f;
     private float fInput;
 
     // Start is called before the first frame update
