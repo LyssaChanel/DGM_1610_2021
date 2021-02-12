@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PropellerGoMove : MonoBehaviour
+public class PropellerConnect : MonoBehaviour
 {
+    public GameObject Plane;
+    public Vector3 offset = new Vector3(0,0,4);
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,6 @@ public class PropellerGoMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       transform.Rotate (new Vector3 (0,0,40 *Time.deltaTime));
+        transform.position = Plane.transform.position + offset;
     }
 }
