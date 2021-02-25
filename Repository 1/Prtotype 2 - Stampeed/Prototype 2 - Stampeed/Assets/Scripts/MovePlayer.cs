@@ -7,6 +7,7 @@ public class MovePlayer : MonoBehaviour
     public float horizontalInput;
     public float speed = 15.0f;
     public float xRange = 10;
+    public GameObject projectilePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,9 @@ public class MovePlayer : MonoBehaviour
         // Player can move left and right
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
     }
 }
