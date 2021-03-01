@@ -15,10 +15,11 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //destroys cookie when it goes off screen
+        //destroys cookie and animal when it goes off screen
         if (transform.position.z > topBound){
             Destroy(gameObject);
         } else if (transform.position.z < lowerBound){
+            Debug.Log("Game Over!!!");
             Destroy(gameObject);
         }
     }
