@@ -40,7 +40,7 @@ public class PlayerMove : MonoBehaviour
             if (dirtParticle.isPlaying) {
             dirtParticle.Stop();
             }
-            //playerAudio.PlayOneShot(jumpSound, 1.0f);
+            playerAudio.PlayOneShot(jumpSound);
         }
     }
     //If player runs into obstacle, they fall over and die
@@ -57,7 +57,9 @@ public class PlayerMove : MonoBehaviour
             if (dirtParticle.isPlaying) {
             dirtParticle.Stop();
             }
-            //playerAudio.PlayOneShot(crashSound, 1.0f);
+            if (gameOver == true){
+                playerAudio.PlayOneShot(crashSound);
+            }
         }
         else if(collision.gameObject.CompareTag("Ground"))
         {
