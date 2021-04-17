@@ -17,7 +17,7 @@ public class PlayerControllerX : MonoBehaviour
     public AudioClip moneySound;
     public AudioClip explodeSound;
     private float topBound = 14;
-    private float bottomBound = 3.5f;
+    private float bottomBound = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +42,9 @@ public class PlayerControllerX : MonoBehaviour
         }
         if (transform.position.y > topBound) {
             transform.position = new Vector3(transform.position.x, topBound, transform.position.z);
+        }
+        if (transform.position.y < bottomBound) {
+            transform.position = new Vector3(transform.position.x, bottomBound, transform.position.z);
         }
     }
     
