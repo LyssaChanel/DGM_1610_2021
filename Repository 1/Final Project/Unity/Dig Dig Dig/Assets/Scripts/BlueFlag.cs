@@ -6,25 +6,31 @@ public class BlueFlag : MonoBehaviour
 {
     private GameManager gameManager;
     public int pointValue;
-    public ParticleSystem waterParticle;
+    public GameObject particle;
+    public AudioClip water;
+    private AudioSource flagAudio;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        flagAudio = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameManager.UpdateScore(pointValue);
+
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.CompareTag("Bucket"))
+        Debug.Log("Uh oh!");
+        if (collision.gameObject.CompareTag("Bucket"))
         {
-            Debug.Log("Uh oh!");
-            Destroy(gameObject);
-            Instantiate(waterParticle, transform.position, waterParticle.transform.rotation);
+            flagAudio.PlayOneShot(water);
+            gameManager.UpdateScore(pointValue);
+            Instantiate(particle, transform.position, transform.rotation);
+            Debug.Log("weeeeeeee");
             gameManager.GameOver();
         }
         

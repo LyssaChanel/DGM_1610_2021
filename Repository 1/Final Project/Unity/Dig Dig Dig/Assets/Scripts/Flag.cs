@@ -2,35 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YellowFlag : MonoBehaviour
+public class Flag : MonoBehaviour
 {
     private GameManager gameManager;
     public int pointValue;
-    public ParticleSystem shockParticle;
-    public AudioClip explosion;
+    public GameObject particle;
+    public AudioClip soundFX;
     private AudioSource flagAudio;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         flagAudio = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bucket"))
         {
+            flagAudio.PlayOneShot(soundFX);
             gameManager.UpdateScore(pointValue);
-            Debug.Log("Uh oh!");
-            flagAudio.PlayOneShot(explosion, 1.0f);
-            Destroy(gameObject);
-            shockParticle.Play();
+            Instantiate(particle, new Vector3(transform.position.x, 2, transform.position.z), transform.rotation);
             gameManager.GameOver();
+            Destroy(gameObject);
         }
+        
     }
 }
+

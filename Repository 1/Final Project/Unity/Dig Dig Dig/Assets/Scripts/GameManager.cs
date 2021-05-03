@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     // public TextMeshProUGUI timeText;
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI overText;
+    public Button restartButton;
     public GameObject titleScreen;
     public GameObject gameScene;
+    public GameObject gameOver;
     private int score;
     private float spawnRangeX = 15;
     private float spawnRangeZ = 15;
@@ -63,9 +65,11 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        gameOver.gameObject.SetActive(true);
         isGameActive = false;
         gameText.gameObject.SetActive(true);
         overText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
     }
     public void RestartGame()
     {
