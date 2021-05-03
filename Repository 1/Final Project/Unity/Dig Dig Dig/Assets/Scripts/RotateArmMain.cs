@@ -19,13 +19,6 @@ public class RotateArmMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        armMainDown = Input.GetKey(KeyCode.S);
-        armMainUp = Input.GetKey(KeyCode.W);
-        if (armMainUp) {
-            transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-        }
-        if (armMainUp) {
-            transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
-        }
+        
     }
 }

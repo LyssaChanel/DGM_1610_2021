@@ -12,7 +12,7 @@ public class RotateCab : MonoBehaviour
     // private bool armForeOut;
     // private bool armBucketIn;
     // private bool armBucketOut;
-    public float turnSpeed = 30.0f;
+    public float turnSpeed = 60.0f;
     private Vector3 offsetY = new Vector3(0,1,0);
     public GameObject tracks;
     // Start is called before the first frame update
